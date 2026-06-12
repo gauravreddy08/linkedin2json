@@ -9,7 +9,23 @@ function downloadJSON(info) {
 	const url = URL.createObjectURL(blob);
 	const a = document.createElement('a');
 	a.href = url;
-	a.download = `${info.header.replace(/[^a-zA-Z0-9]/g, '_')}.json`;
+	// Generate filename from LinkedIn URL
+	let filename = 'linkedin_profile';
+	if (info.linkedin_url) {
+		// Extract username from LinkedIn URL
+		const urlMatch = info.linkedin_url.match(/linkedin\.com\/in\/([^\/\?]+)/);
+		if (urlMatch && urlMatch[1]) {
+			filename = `linkedin_${urlMatch[1]}`;
+		} else {
+			// Fallback: use timestamp if URL parsing fails
+			filename = `linkedin_profile_${new Date().getTime()}`;
+		}
+	} else if (info.header) {
+		// Fallback to old header method if URL not available
+		filename = info.header.replace(/[^a-zA-Z0-9]/g, '_');
+	}
+	
+	a.download = `${filename}.json`;
 	
 	// Trigger the download
 	document.body.appendChild(a);

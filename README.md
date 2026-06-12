@@ -1,25 +1,34 @@
-# linkedin-cv-extention
+# linkedin2json
 
-Export LinkedIn™ Profile to CV
+A Chrome extension that exports any LinkedIn™ profile to a clean JSON format or PDF CV in a single click.
 
-## Features
+## What it does
 
-This is a Chrome, Edge, Firefox or Opera extension that helps you export any LinkedIn profile to PDF CV or Resume in single click. Easy & Simple !!!
+- Visit any LinkedIn profile
+- Click the extension icon
+- Instantly export profile data as structured JSON, or download a formatted PDF CV/Resume
 
-## How to Use
+## Installation
 
-1. Navigate to a LinkedIn™ Profile.
-2. Click on the extension icon in the browser toolbar.
-3. Click on the "Export CV" button to download your CV in PDF format.
+1. Clone or download this repo
+2. Open Chrome → `chrome://extensions/` → Enable **Developer mode**
+3. Click **Load unpacked** → select this folder
+4. Navigate to any LinkedIn profile and click the extension icon
 
-## Keyboard Shortcuts
+## Keyboard Shortcut
 
-- `MacCtrl+Shift+E` (Mac) or `Ctrl+Shift+E` (other platforms): Export CV to PDF
+- `Ctrl+Shift+E` (Windows/Linux) or `MacCtrl+Shift+E` (Mac) — Export CV to PDF
 
-## Development
+## Files
 
-This project is developed using JavaScript. To contribute to the project, you can clone the repository and make changes to the `popup.js` and `export.js` files.
+| File | Purpose |
+|------|---------|
+| `popup.js` | Extension popup UI logic |
+| `popup.html` | Popup UI |
+| `static/js/export.js` | Core export logic (JSON + PDF generation) |
+| `static/js/popup.js` | Popup-side JS |
+| `manifest.json` | Chrome extension manifest |
 
 ## License
 
-This project is licensed under the MIT License.
+MIT
